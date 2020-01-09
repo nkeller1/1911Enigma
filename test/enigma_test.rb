@@ -24,4 +24,21 @@ class EnigmaTest < Minitest::Test
     assert_equal [56, 12, 42, 19], @enigma.shift
   end
 
+  def test_encrypt
+    expected = {
+    encryption: "keder ohulw",
+    key: "02715",
+    date: "040895"
+    }
+
+    assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+
+    expected2 = {
+    encryption: " s qgtjyhkdczcsel",
+    key: "03452",
+    date: "090120"
+    }
+
+    assert_equal expected2, @enigma.encrypt("this is a message", "03452", "090120")
+  end
 end
