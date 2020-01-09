@@ -20,5 +20,5 @@ class Offset
       :c => last_four_seperate[2].to_i,
       :d => last_four_seperate[3].to_i
       }
-    end
+  end
 end
