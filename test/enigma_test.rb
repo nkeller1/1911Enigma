@@ -24,6 +24,8 @@ class EnigmaTest < Minitest::Test
     assert_equal [56, 12, 42, 19], @enigma.shift
   end
 
+
+
   def test_encrypt
     expected = {
     encryption: "keder ohulw",
