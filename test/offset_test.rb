@@ -22,5 +22,10 @@ class OffsetTest < Minitest::Test
     expected = {:a=>1, :b=>0, :c=>2, :d=>5}
 
     assert_equal expected, offset.offset_seperated("040895")
+
+    expected2 = {:a=>5, :b=>9, :c=>6, :d=>1}
+    offset.expects(:offset_seperated).returns(expected2)
+
+    assert_equal expected2, offset.offset_seperated
   end
 end
