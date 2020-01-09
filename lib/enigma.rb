@@ -16,6 +16,10 @@ class Enigma
     code_key.merge(offset_amt) { |placement, old, new| old + new }.values
   end
 
+  def message_adjust(message)
+    message.downcase.split("").to_a
+  end
+
   def encrypt(message, key = nil, date = nil)
     message_split = message_adjust(message)
     shift_amt = shift(key, date)
