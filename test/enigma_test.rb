@@ -24,7 +24,11 @@ class EnigmaTest < Minitest::Test
     assert_equal [56, 12, 42, 19], @enigma.shift
   end
 
+  def test_message_adjust
+    expected = ["h", "e", "l", "l", "o"]
 
+    assert_equal expected, @enigma.message_adjust("hello")
+  end
 
   def test_encrypt
     expected = {

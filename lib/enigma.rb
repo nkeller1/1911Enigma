@@ -17,7 +17,7 @@ class Enigma
   end
 
   def encrypt(message, key = nil, date = nil)
-    message_split = message.downcase.split("").to_a
+    message_split = message_adjust(message)
     shift_amt = shift(key, date)
   end
 
