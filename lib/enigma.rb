@@ -1,5 +1,5 @@
 class Enigma
-  
+
   def initialize
     @cipherkey = CipherKey.new
     @offset = Offset.new
@@ -34,14 +34,13 @@ class Enigma
       acc << @encryptmessage.encrypt_single_letter(letter, shift_amt.first)
       shift_amt.rotate!
       acc
-  end.join
+    end.join
 
     {
     :encryption => encrypted_msg,
     :key => key_conditional(key),
     :date => date_conditional(date).to_s
     }
-    # require "pry"; binding.pry
   end
 
   def decrypt(message, key, date)
@@ -51,7 +50,7 @@ class Enigma
       acc << @decryptmessage.decrypt_single_letter(letter, shift_amt.first)
       shift_amt.rotate!
       acc
-  end.join
+    end.join
 
     {
     :decryption => decrypted_msg,
