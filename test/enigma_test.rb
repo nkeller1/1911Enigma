@@ -83,13 +83,15 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_without_key_and_date
-    skip
+
     # @enimga.expects(:encrypt).returns(expected = {
     #   encryption: "keder ohulw",
     #   key: "02715",
     #   date: "040895"})
 
+    expected = {:decryption=>"hello world", :key=>"18341", :date=>"100120"}
+
     # assert_equal ({}), @enigma.encrypt("hello world")
-    assert_equal [], @enigma.decrypt("ckszjfcbmrk", "18341", "100120")
+    assert_equal expected, @enigma.decrypt("ckszjfcbmrk", "18341", "100120")
   end
 end
