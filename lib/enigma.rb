@@ -38,7 +38,7 @@ class Enigma
 
     {
     :encryption => encrypted_msg,
-    :key => key_conditional(key),
+    :key => key_conditional(key).to_s,
     :date => date_conditional(date).to_s
     }
   end
