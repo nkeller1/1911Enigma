@@ -14,11 +14,11 @@ class Offset
 
     last_four_seperate = last_four.to_s.split(//)
 
-    split = {
-      :a => last_four_seperate[0].to_i,
-      :b => last_four_seperate[1].to_i,
-      :c => last_four_seperate[2].to_i,
-      :d => last_four_seperate[3].to_i
-      }
+   {
+    :a => last_four_seperate[0].to_i,
+    :b => last_four_seperate[1].to_i,
+    :c => last_four_seperate[2].to_i,
+    :d => last_four_seperate[3].to_i
+   }
   end
 end
