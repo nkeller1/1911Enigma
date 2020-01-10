@@ -10,4 +10,9 @@ class EncryptTest < Minitest::Test
     assert_instance_of EncryptMessage, @encryptmessage
   end
 
+  def test_alphabet
+    #option for module here and w/ decrypt
+    assert_equal 27, @encryptmessage.alphabet.length
+  end
+
 end
