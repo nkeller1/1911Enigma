@@ -47,4 +47,23 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected2, @enigma.encrypt("this is a message", "03452", "090120")
   end
+
+  def test_decrypt
+    expected1 = {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    }
+
+  assert_equal expected1, @enigma.decrypt("keder ohulw", "02715", "040895")
+
+    expected2 = {
+    decryption: "this is a message",
+    key: "03452",
+    date: "090120"
+    }
+
+  assert_equal expected2, @enigma.decrypt(" s qgtjyhkdczcsel", "03452", "090120")
+  end
+
 end
