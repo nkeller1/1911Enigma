@@ -58,12 +58,12 @@ class EnigmaTest < Minitest::Test
   assert_equal expected1, @enigma.decrypt("keder ohulw", "02715", "040895")
 
     expected2 = {
-    decryption: "this is a message",
+    decryption: "this is a message!",
     key: "03452",
     date: "090120"
     }
 
-  assert_equal expected2, @enigma.decrypt(" s qgtjyhkdczcsel", "03452", "090120")
+  assert_equal expected2, @enigma.decrypt(" s qgtjyhkdczcsel!", "03452", "090120")
   end
 
   def test_encrypt_and_decrypt_without_date_passed_in
