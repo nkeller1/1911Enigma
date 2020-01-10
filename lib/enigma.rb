@@ -30,10 +30,10 @@ class Enigma
       acc
   end.join
 
-    encryption = {
-      :encryption => encrypted_msg,
-      :key => key,
-      :date => date_conditional(date)
-            }
+  {
+    :encryption => encrypted_msg,
+    :key => key,
+    :date => date_conditional(date)
+  }
   end
 end
