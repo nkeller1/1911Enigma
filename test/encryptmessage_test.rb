@@ -15,4 +15,9 @@ class EncryptTest < Minitest::Test
     assert_equal 27, @encryptmessage.alphabet.length
   end
 
+  def test_alpha_with_index
+    #option for modugle here with decrypt
+    assert_equal 27, @encryptmessage.alphabet.length
+  end
+
 end
