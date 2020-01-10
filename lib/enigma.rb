@@ -12,6 +12,11 @@ class Enigma
     date
   end
 
+  def key_conditional(key = nil)
+    return @cipherkey.code_key if key == nil
+    key
+  end
+
   def shift(key = nil, date = nil)
     code_key = @cipherkey.seperate_to_pairs(key)
     offset_amt = @offset.offset_seperated(date)
@@ -31,15 +36,16 @@ class Enigma
       acc
   end.join
 
-  {
-  :encryption => encrypted_msg,
-  :key => key,
-  :date => date_conditional(date)
-  }
+    {
+    :encryption => encrypted_msg,
+    :key => key_conditional(key),
+    :date => date_conditional(date).to_s
+    }
+    # require "pry"; binding.pry
   end
 
   def decrypt(message, key, date)
-    message_split = message_adjust(message.downcase)
+    message_split = message_adjust(message)
     shift_amt = shift(key, date)
     decrypted_msg = message_split.reduce([]) do |acc, letter|
       acc << @decryptmessage.decrypt_single_letter(letter, shift_amt.first)
@@ -47,10 +53,10 @@ class Enigma
       acc
   end.join
 
-  {
-  :decryption => decrypted_msg,
-  :key => key,
-  :date => date
-  }
+    {
+    :decryption => decrypted_msg,
+    :key => key,
+    :date => date
+    }
   end
 end

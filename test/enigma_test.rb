@@ -16,6 +16,11 @@ class EnigmaTest < Minitest::Test
     assert_equal  "311219", @enigma.date_conditional("311219")
   end
 
+  def test_key_conditional
+    #write a stub for the random generate_date
+    assert_equal  "18341", @enigma.key_conditional("18341")
+  end
+
   def test_shift
     expected = [3, 27, 73, 20]
     assert_equal expected, @enigma.shift("02715", "040895")
@@ -55,7 +60,7 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
 
-  assert_equal expected1, @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal expected1, @enigma.decrypt("keder ohulw", "02715", "040895")
 
     expected2 = {
     decryption: "this is a message!",
@@ -63,7 +68,7 @@ class EnigmaTest < Minitest::Test
     date: "090120"
     }
 
-  assert_equal expected2, @enigma.decrypt(" s qgtjyhkdczcsel!", "03452", "090120")
+    assert_equal expected2, @enigma.decrypt(" s qgtjyhkdczcsel!", "03452", "090120")
   end
 
   def test_encrypt_and_decrypt_without_date_passed_in
@@ -79,12 +84,12 @@ class EnigmaTest < Minitest::Test
 
   def test_without_key_and_date
     skip
-    @enimga.expects(:encrypt).returns(expected = {
-      encryption: "keder ohulw",
-      key: "02715",
-      date: "040895"})
+    # @enimga.expects(:encrypt).returns(expected = {
+    #   encryption: "keder ohulw",
+    #   key: "02715",
+    #   date: "040895"})
 
-    assert_equal ({}), @enigma.encrypt("hello world")
-    assert_equal [], @enigma.decrypt("keder ohulw", "02715", "040895")
+    # assert_equal ({}), @enigma.encrypt("hello world")
+    assert_equal [], @enigma.decrypt("ckszjfcbmrk", "18341", "100120")
   end
 end
