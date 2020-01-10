@@ -1,0 +1,4 @@
+class EncryptMessage
+
+
+end
