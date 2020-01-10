@@ -1,5 +1,9 @@
 class CipherKey
 
+  def code_key
+    @code_key
+  end
+
   def seperate_to_pairs(key = nil)
     if key == nil
       @code_key = rand(10000..99999)
