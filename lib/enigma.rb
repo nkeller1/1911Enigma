@@ -24,11 +24,11 @@ class Enigma
   end
 
   def message_adjust(message)
-    message.downcase.split("").to_a
+    message.downcase.split("")
   end
 
   def encrypt(message, key = nil, date = nil)
-    message_split = message_adjust(message.downcase)
+    message_split = message_adjust(message)
     shift_amt = shift(key, date)
     encrypted_msg = message_split.reduce([]) do |acc, letter|
       acc << @encryptmessage.encrypt_single_letter(letter, shift_amt.first)
@@ -43,7 +43,7 @@ class Enigma
     }
   end
 
-  def decrypt(message, key, date)
+  def decrypt(message, key, date = nil)
     message_split = message_adjust(message)
     shift_amt = shift(key, date)
     decrypted_msg = message_split.reduce([]) do |acc, letter|
@@ -55,7 +55,7 @@ class Enigma
     {
     :decryption => decrypted_msg,
     :key => key,
-    :date => date
+    :date => date_conditional(date).to_s
     }
   end
 end
