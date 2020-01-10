@@ -3,6 +3,7 @@ class Enigma
   def initialize
     @cipherkey = CipherKey.new
     @offset = Offset.new
+    @encryptmessage = EncryptMessage.new
   end
 
   def date_conditional(date = nil)
@@ -23,6 +24,16 @@ class Enigma
   def encrypt(message, key = nil, date = nil)
     message_split = message_adjust(message)
     shift_amt = shift(key, date)
-  end
+    encrypted_msg = message_split.reduce([]) do |acc, letter|
+      acc << @encryptmessage.encrypt_single_letter(letter, shift_amt.first)
+      shift_amt.rotate!
+      acc
+  end.join
 
+  {
+    :encryption => encrypted_msg,
+    :key => key,
+    :date => date_conditional(date)
+  }
+  end
 end
