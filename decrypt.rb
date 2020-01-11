@@ -3,7 +3,6 @@ require_relative './lib/cipherkey'
 require_relative './lib/offset'
 require_relative './lib/encryptmessage'
 require_relative './lib/decryptmessage'
-# require_relative 'encrypt'
 
 enigma = Enigma.new
 

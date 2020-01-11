@@ -24,6 +24,4 @@ module Aplhabetcovertable
     end
     convert
   end
-
-
 end
