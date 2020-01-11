@@ -12,8 +12,6 @@ incoming_text = handle.read
 
 handle.close
 
-puts incoming_text
-
 encrypted_text = enigma.encrypt(incoming_text)
 
 writer = File.open(ARGV[1], "w")
@@ -21,3 +19,5 @@ writer = File.open(ARGV[1], "w")
 writer.write(encrypted_text)
 
 writer.close
+
+puts "Created 'encrypted.txt' with a key #{enigma.key_conditional} and date #{enigma.date_conditional}"
