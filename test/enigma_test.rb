@@ -37,17 +37,17 @@ class EnigmaTest < Minitest::Test
 
   def test_encrypt
     expected = {
-    encryption: "keder ohulw",
-    key: "02715",
-    date: "040895"
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
     }
 
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
 
     expected2 = {
-    encryption: " s qgtjyhkdczcsel!",
-    key: "03452",
-    date: "090120"
+      encryption: " s qgtjyhkdczcsel!",
+      key: "03452",
+      date: "090120"
     }
 
     assert_equal expected2, @enigma.encrypt("THIS IS A MESSAGE!", "03452", "090120")
@@ -63,9 +63,9 @@ class EnigmaTest < Minitest::Test
     assert_equal expected1, @enigma.decrypt("keder ohulw", "02715", "040895")
 
     expected2 = {
-    decryption: "this is a message!",
-    key: "03452",
-    date: "090120"
+      decryption: "this is a message!",
+      key: "03452",
+      date: "090120"
     }
 
     assert_equal expected2, @enigma.decrypt(" s qgtjyhkdczcsel!", "03452", "090120")
@@ -75,9 +75,9 @@ class EnigmaTest < Minitest::Test
     encrypted = @enigma.encrypt("hello world", "02715")
 
     expected = {
-    decryption: "hello world",
-    key: "02715",
-    date: encrypted[:date]
+      decryption: "hello world",
+      key: "02715",
+      date: encrypted[:date]
     }
 
     assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715")
@@ -91,7 +91,7 @@ class EnigmaTest < Minitest::Test
       :key=>encrypted[:key],
       :date=>encrypted[:date]
     }
-    
+
     assert_equal expected, @enigma.decrypt(encrypted[:encryption], encrypted[:key])
   end
 end
