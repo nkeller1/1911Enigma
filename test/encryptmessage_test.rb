@@ -11,17 +11,14 @@ class EncryptTest < Minitest::Test
   end
 
   def test_alphabet
-    #option for module here and w/ decrypt
     assert_equal 27, @encryptmessage.alphabet.length
   end
 
   def test_alpha_with_index
-    #option for module later
     assert_equal 27, @encryptmessage.alphabet.length
   end
 
   def test_convert_letter_into_number
-    #option for module later
     assert_equal [26], @encryptmessage.convert(" ")
     assert_equal [7], @encryptmessage.convert("h")
     assert_equal [4], @encryptmessage.convert("e")
