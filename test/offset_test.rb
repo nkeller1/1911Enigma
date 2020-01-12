@@ -10,8 +10,8 @@ class OffsetTest < Minitest::Test
 
   def test_generate_date
     offset = Offset.new
-
     offset.expects(:generate_date).returns("040895")
+
     assert_equal "040895", offset.generate_date
   end
 
@@ -21,8 +21,8 @@ class OffsetTest < Minitest::Test
 
     assert_equal expected, offset.offset_seperated("040895")
 
-    expected2 = {:a=>5, :b=>9, :c=>6, :d=>1}
-    offset.expects(:offset_seperated).returns(expected2)
+    expected2 = {:a=>8, :b=>9, :c=>4, :d=>4}
+    offset.expects(:generate_date).twice.returns("121212")
 
     assert_equal expected2, offset.offset_seperated
   end
