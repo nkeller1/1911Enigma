@@ -1,10 +1,12 @@
 require_relative 'testhelper'
 require_relative '../lib/enigma'
+require_relative '../lib/offset'
 
 class EnigmaTest < Minitest::Test
 
   def setup
     @enigma = Enigma.new
+    @offset = Offset.new
   end
 
   def test_it_exist
@@ -12,21 +14,21 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_date_conditional
-    #write a stub for the random generate_date
     assert_equal  "311219", @enigma.date_conditional("311219")
   end
 
   def test_key_conditional
-    #write a stub for the random generate_date
-    assert_equal  "18341", @enigma.key_conditional("18341")
+    assert_equal "18341", @enigma.key_conditional("18341")
   end
 
   def test_shift
     expected = [3, 27, 73, 20]
     assert_equal expected, @enigma.shift("02715", "040895")
 
-    @enigma.expects(:shift).returns([56, 12, 42, 19])
-    assert_equal [56, 12, 42, 19], @enigma.shift
+    offset_expected = {:a =>12,:b => 23, :c => 34, :d => 45}
+    @offset.stubs(:offset_seperated).returns(offset_expected)
+
+    assert_equal [6, 31, 71, 15], @enigma.shift("02715")
   end
 
   def test_message_adjust
