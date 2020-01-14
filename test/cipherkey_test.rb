@@ -16,5 +16,7 @@ class CipherKeyTest < Minitest::Test
 
     zero_pair = {:a =>2,:b => 20, :c => 3, :d => 30}
     assert_equal zero_pair, @cipherkey.seperate_to_pairs("02030")
+
+    assert_equal "ERROR: ENTER A 5 DIGIT KEY TO CONTINUE", @cipherkey.seperate_to_pairs("123")
   end
 end

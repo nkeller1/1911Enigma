@@ -6,7 +6,7 @@ class Offset
 
   def offset_seperated(date = nil)
     last_four =
-    if date == nil
+    if date == nil || date.length != 6
       (generate_date.to_i * generate_date.to_i) % 10000
     else
       (date.to_i * date.to_i) % 10000
