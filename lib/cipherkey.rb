@@ -7,6 +7,8 @@ class CipherKey
   def seperate_to_pairs(key = nil)
     if key == nil
       @code_key = rand(10000..99999)
+    elsif key != nil && key.length != 5
+      return "ERROR: ENTER A 5 DIGIT KEY TO CONTINUE"
     else
       @code_key = key
     end
